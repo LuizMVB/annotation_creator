@@ -1,0 +1,56 @@
+{% extends "skeleton.html" %}
+{% block title %}ANNOTATION CREATOR{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col s8 offset-s2">
+                <h3 class="header center">Criando Arquivos de Sequência e Taxonomia</h3>
+                <div class="center-align grey-text text-darken-5">
+                    <h6>
+                        Entre com a sequência desejada e com sua taxonomia, respectivamente
+                    </h6>
+                </div>
+                <br>
+                <div class="input-field col s6">
+                    <textarea id="seq" name="seq" class="materialize-textarea"></textarea>
+                    <label for="seq">Sequência</label>
+                </div>
+                <div class="input-field col s6">
+                    <textarea id="tax" name="tax" class="materialize-textarea"></textarea>
+                    <label for="tax">Taxonomia</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s8 offset-s2">
+                <table class="centered" id="table">
+                    <thead>
+                        <tr>
+                            <th>seq</th>
+                            <th>tax</th>
+                        </tr>
+                    </thead>
+                    <tbody id="items">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s8 offset-s2">
+                <div class="col s2">
+                    <button class="btn waves-effect waves-light" name="add" onclick="addItem()">Adicionar
+                        <i class="material-icons right">add</i>
+                    </button>
+                </div>
+                <div class="col s2">
+                    <a class="btn waves-effect waves-light red" name="criar_arquivo" href="{{ url_for('export') }}">Export
+                        <i class="material-icons right">archive</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/add.js') }}"></script>
+{% endblock %}
