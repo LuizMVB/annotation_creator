@@ -37,14 +37,19 @@
         </div>
         <div class="row">
             <div class="col s8 offset-s2">
-                <div class="col s2">
-                    <button class="btn waves-effect waves-light" name="add" onclick="addItem()">Adicionar
+                <div class="col s4">
+                    <button class="btn waves-effect waves-light green" name="add" onclick="addItem()">Adicionar
                         <i class="material-icons right">add</i>
                     </button>
                 </div>
-                <div class="col s2">
-                    <a class="btn waves-effect waves-light red" name="criar_arquivo" href="{{ url_for('export') }}">Export
-                        <i class="material-icons right">archive</i>
+                <div class="col s4">
+                    <a class="btn waves-effect waves-light red" name="criar_arquivo" href='{{ url_for("export_seqs")}}'>Exportar sequencias
+                        <i class="material-icons right center">archive</i>
+                    </a>
+                </div>
+                <div class="col s4">
+                    <a class="btn waves-effect waves-light red" name="criar_arquivo" href='{{ url_for("export_tax")}}'>Exportar taxonomia
+                        <i class="material-icons right center">archive</i>
                     </a>
                 </div>
             </div>
