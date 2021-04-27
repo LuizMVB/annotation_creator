@@ -5,19 +5,22 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-if os.path.exists("app/uploads/seqs.fasta"):
-    os.remove('app/uploads/seqs.fasta')
-if os.path.exists("app/uploads/taxonomy.txt"):
-    os.remove('app/uploads/taxonomy.txt')
-
 uploads_path = 'app/uploads/' 
 
 @app.route('/')
 def index():
+    if os.path.exists("app/uploads/seqs.fasta"):
+        os.remove('app/uploads/seqs.fasta')
+    if os.path.exists("app/uploads/taxonomy.txt"):
+        os.remove('app/uploads/taxonomy.txt')
     return redirect(url_for('main'))
 
 @app.route('/main')
 def main():
+    if os.path.exists("app/uploads/seqs.fasta"):
+        os.remove('app/uploads/seqs.fasta')
+    if os.path.exists("app/uploads/taxonomy.txt"):
+        os.remove('app/uploads/taxonomy.txt')
     return render_template('main.html')
 
 @app.route('/addItem', methods=['POST'])
