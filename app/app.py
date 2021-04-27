@@ -5,11 +5,12 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-uploads_path = 'app/uploads/'
 if os.path.exists("app/uploads/seqs.fasta"):
     os.remove('app/uploads/seqs.fasta')
 if os.path.exists("app/uploads/taxonomy.txt"):
     os.remove('app/uploads/taxonomy.txt')
+
+uploads_path = 'app/uploads/' 
 
 @app.route('/')
 def index():
@@ -19,8 +20,11 @@ def index():
 def main():
     return render_template('main.html')
 
-@app.route('/addItem/<id>/<seq>/<tax>')
-def addItem(id, seq, tax):
+@app.route('/addItem', methods=['POST'])
+def addItem():
+    id = request.form['id']
+    seq = request.form['seq']
+    tax = request.form['tax']
     addSeqLine(id, seq)
     addTaxLine(id, tax)
     return {}
