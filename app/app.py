@@ -1,7 +1,9 @@
 from flask import Flask, redirect, url_for, render_template, request, send_file
-import os, re
+import os
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 uploads_path = 'app/uploads/'
 if os.path.exists("app/uploads/seqs.fasta"):
     os.remove('app/uploads/seqs.fasta')
