@@ -47,7 +47,7 @@ def addSeqLine(id, seq):
     f_seq.close()
 
 def addTaxLine(id, tax):
-    tax = tax.replace(';', '; ').replace('  ', ' ').replace('.', '')
+    tax = tax.replace('\n', ' ').replace('  ', ' ').replace('.', '')
     f_tax = open(uploads_path + 'taxonomy.txt', 'a')
     f_tax.write(id + '\t' + tax + '\n')
     f_tax.close()
